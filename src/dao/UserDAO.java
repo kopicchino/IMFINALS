@@ -143,7 +143,10 @@ public class UserDAO {
         user.setAddress(rs.getString("address"));
         user.setUserType(rs.getString("user_type"));
         user.setActive(rs.getBoolean("is_active"));
+<<<<<<< HEAD
         user.setLocked(rs.getBoolean("is_locked"));
+=======
+>>>>>>> 0bc87d04903327a398d57bc0ad7a11b23bfb99e6
         user.setCreatedAt(rs.getTimestamp("created_at").toLocalDateTime());
         return user;
     }

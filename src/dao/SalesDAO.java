@@ -22,7 +22,11 @@ public class SalesDAO {
             conn.setAutoCommit(false);
             
             // insert sale
+<<<<<<< HEAD
             String saleSql = "INSERT INTO sales (user_id, sale_date, subtotal, tax, delivery_fee, total, customer_name, delivery_address, delivery_phone, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+=======
+            String saleSql = "INSERT INTO sales (user_id, sale_date, subtotal, tax, total, customer_name, status) VALUES (?, ?, ?, ?, ?, ?, ?)";
+>>>>>>> 0bc87d04903327a398d57bc0ad7a11b23bfb99e6
             int saleId = 0;
             try (PreparedStatement saleStmt = conn.prepareStatement(saleSql, Statement.RETURN_GENERATED_KEYS)) {
                 if (userId != null) {
@@ -33,12 +37,18 @@ public class SalesDAO {
                 saleStmt.setTimestamp(2, Timestamp.valueOf(sale.getSaleDate()));
                 saleStmt.setBigDecimal(3, sale.getSubtotal());
                 saleStmt.setBigDecimal(4, sale.getTax());
+<<<<<<< HEAD
                 saleStmt.setBigDecimal(5, sale.getDeliveryFee() != null ? sale.getDeliveryFee() : java.math.BigDecimal.ZERO);
                 saleStmt.setBigDecimal(6, sale.getTotal());
                 saleStmt.setString(7, sale.getCustomerName());
                 saleStmt.setString(8, sale.getDeliveryAddress());
                 saleStmt.setString(9, sale.getDeliveryPhone());
                 saleStmt.setString(10, sale.getStatus() != null ? sale.getStatus() : "COMPLETED");
+=======
+                saleStmt.setBigDecimal(5, sale.getTotal());
+                saleStmt.setString(6, sale.getCustomerName());
+                saleStmt.setString(7, "COMPLETED");
+>>>>>>> 0bc87d04903327a398d57bc0ad7a11b23bfb99e6
                 saleStmt.executeUpdate();
 
                 try (ResultSet rs = saleStmt.getGeneratedKeys()) {
@@ -105,6 +115,7 @@ public class SalesDAO {
             }
             
             conn.commit();
+<<<<<<< HEAD
             
             if (userId != null) {
                 try {
@@ -114,6 +125,8 @@ public class SalesDAO {
                     System.err.println("Real-time profiling failed: " + ex.getMessage());
                 }
             }
+=======
+>>>>>>> 0bc87d04903327a398d57bc0ad7a11b23bfb99e6
             return true;
         } catch (SQLException e) {
             if (conn != null) {
@@ -141,6 +154,7 @@ public class SalesDAO {
         }
     }
     
+<<<<<<< HEAD
     /**
      * Returns the number of distinct registered customers (non-null user_id)
      * who have placed at least one completed order.
@@ -158,6 +172,8 @@ public class SalesDAO {
         return 0;
     }
 
+=======
+>>>>>>> 0bc87d04903327a398d57bc0ad7a11b23bfb99e6
     public List<Sale> findAll() {
         List<Sale> sales = new ArrayList<>();
         String sql = "SELECT * FROM sales ORDER BY sale_date DESC";
@@ -241,6 +257,7 @@ public class SalesDAO {
         sale.setSaleDate(rs.getTimestamp("sale_date").toLocalDateTime());
         sale.setSubtotal(rs.getBigDecimal("subtotal"));
         sale.setTax(rs.getBigDecimal("tax"));
+<<<<<<< HEAD
         sale.setDeliveryFee(rs.getBigDecimal("delivery_fee"));
         sale.setTotal(rs.getBigDecimal("total"));
         sale.setCustomerName(rs.getString("customer_name"));
@@ -285,4 +302,10 @@ public class SalesDAO {
         }
         return false;
     }
+=======
+        sale.setTotal(rs.getBigDecimal("total"));
+        sale.setCustomerName(rs.getString("customer_name"));
+        return sale;
+    }
+>>>>>>> 0bc87d04903327a398d57bc0ad7a11b23bfb99e6
 }

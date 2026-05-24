@@ -7,7 +7,10 @@ import java.util.List;
 
 public class Sale {
     private int id;
+<<<<<<< HEAD
     private Integer userId;
+=======
+>>>>>>> 0bc87d04903327a398d57bc0ad7a11b23bfb99e6
     private LocalDateTime saleDate;
     private BigDecimal subtotal;
     private BigDecimal tax;
@@ -16,14 +19,20 @@ public class Sale {
     private String customerName;
     private String deliveryAddress;
     private String deliveryPhone;
+<<<<<<< HEAD
     private String status;
+=======
+>>>>>>> 0bc87d04903327a398d57bc0ad7a11b23bfb99e6
     private List<SaleItem> items;
     
     public Sale() {
         this.items = new ArrayList<>();
         this.saleDate = LocalDateTime.now();
         this.deliveryFee = BigDecimal.ZERO;
+<<<<<<< HEAD
         this.status = "PENDING";
+=======
+>>>>>>> 0bc87d04903327a398d57bc0ad7a11b23bfb99e6
     }
     
     public void calculateTotals() {
@@ -66,10 +75,13 @@ public class Sale {
     public List<SaleItem> getItems() { return items; }
     public void setItems(List<SaleItem> items) { this.items = items; }
     public void addItem(SaleItem item) { this.items.add(item); }
+<<<<<<< HEAD
 
     public String getStatus() { return status; }
     public void setStatus(String status) { this.status = status; }
 
     public Integer getUserId() { return userId; }
     public void setUserId(Integer userId) { this.userId = userId; }
+=======
+>>>>>>> 0bc87d04903327a398d57bc0ad7a11b23bfb99e6
 }

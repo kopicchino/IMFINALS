@@ -12,12 +12,18 @@ public class User {
     private String address;
     private String userType;
     private boolean isActive;
+<<<<<<< HEAD
     private boolean isLocked;
+=======
+>>>>>>> 0bc87d04903327a398d57bc0ad7a11b23bfb99e6
     private LocalDateTime createdAt;
     
     public User() {
         this.isActive = true;
+<<<<<<< HEAD
         this.isLocked = false;
+=======
+>>>>>>> 0bc87d04903327a398d57bc0ad7a11b23bfb99e6
     }
     
     public User(int id, String username, String fullName, String email, String userType) {
@@ -117,6 +123,7 @@ public class User {
         return "CUSTOMER".equals(userType);
     }
     
+<<<<<<< HEAD
     public boolean isLocked() {
         return isLocked;
     }
@@ -125,6 +132,8 @@ public class User {
         this.isLocked = locked;
     }
     
+=======
+>>>>>>> 0bc87d04903327a398d57bc0ad7a11b23bfb99e6
     @Override
     public String toString() {
         return fullName + " (" + username + ")";
